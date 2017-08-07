@@ -90,19 +90,21 @@ return htmltemplate;
 }
 
 
+
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
 var counter=0;
 app.get('/counter', function (req, res){
    counter = counter+1;
    res.send(counter.toString());
 });
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-
 
 var names = [];
-app.get('/submit-name',function (req, res){
+app.get('/submit-name', function (req, res){
     //get the name from the request
     var name = req.query.name;
     
